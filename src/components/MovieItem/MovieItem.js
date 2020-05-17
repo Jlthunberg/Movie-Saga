@@ -11,7 +11,7 @@ class MovieItem extends Component {
 
     handleDetail = (id) => {
         console.log(' in handle detail', this.props.movie.id);
-        // this.props.dispatch({type: 'GET_DETAILS', payload: this.props.movie.id});
+        this.props.dispatch({type: 'GET_DETAIL', payload: this.props.movie.id});
         // this.props.history.push('/details')
     }
     // Renders the entire MovieItem on the DOM

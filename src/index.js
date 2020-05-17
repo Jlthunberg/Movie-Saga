@@ -16,18 +16,8 @@ import createSagaMiddleware from 'redux-saga';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
-    yield takeEvery('GET_DETAILS', singleMovie);
+    yield takeEvery('GET_DETAILS', getDetails);
 
-}
-
-function* singleMovie() {
-    try {
-        const response = yield axios.get(`/api/movie`);
-        console.log('in getMovies', response.data);
-        yield put({ type: 'SET_MOVIES', payload: response.data}); 
-    } catch (err) {
-        console.log('in getMovies', err);
-    }
 }
 
 function* getMovies() {
@@ -36,7 +26,17 @@ function* getMovies() {
         console.log('in getMovies', response.data);
         yield put({ type: 'SET_MOVIES', payload: response.data}); 
     } catch (err) {
-        console.log('in getMovies', err);
+        console.log('error in getMovies', err);
+    }
+}
+
+function* getDetails(action) {
+    try{
+        let response = yield axios.get(`/api/detail/${action.payload}`)
+        console.log('in get details', response.data)
+        yield put({type: 'THE_DETAILS', payload: response.data})
+    } catch(error) {
+        console.log('error in getDetails', error)
     }
 }
 
@@ -67,8 +67,8 @@ const genresReducer = (state = [], action) => {
 //send details of movie
 const movieDetails = (state = [], action) => {
     switch (action.type) {
-        case 'GET_MOVIE':
-            console.log('GET_MOVIE', action.payload)
+        case 'THE_DETAILS':
+            console.log('THE_DETAILS', action.payload)
             return action.payload.name;
         default:
             return state;
