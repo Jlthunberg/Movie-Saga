@@ -25,9 +25,8 @@ CREATE TABLE "movie_genre" (
 );
 
 
-
 --------[ DATA! ]---------
--- starter movie_genre
+-- starter movie_genre 
 INSERT INTO "movie_genre" ("id", "movies_id", "genres_id")
 VALUES
 (1,1,11),

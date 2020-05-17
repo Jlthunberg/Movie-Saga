@@ -11,7 +11,7 @@ class MovieItem extends Component {
 
     handleDetail = (id) => {
         console.log(' in handle detail', this.props.movie.id);
-        this.props.dispatch({type: 'GET_DETAIL', payload: this.props.movie.id});
+        this.props.dispatch({type: 'GET_DETAIL', payload: this.props.movie});
         // this.props.history.push('/details')
     }
     // Renders the entire MovieItem on the DOM
@@ -19,7 +19,7 @@ class MovieItem extends Component {
         const poster = this.props.movie.poster;
         const title = this.props.movie.title;
         const description = this.props.movie.description;
-        let singlePoster = <img src={poster} alt={title} onClick={() => this.handleDetail(this.props.movie.id)}/>
+        let singlePoster = <img src={poster} alt={title} onClick={() => this.handleDetail(this.props.movie)}/>
         return (
             <div className="postercard">
                 <Grid>
