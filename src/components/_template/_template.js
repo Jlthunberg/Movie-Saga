@@ -5,7 +5,7 @@ class _template extends Component {
   render() {
     return (
       <div className="_template">
-        <p>Template</p>
+        <p>_template</p>
       </div>
     );
   }
