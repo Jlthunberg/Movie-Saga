@@ -2,10 +2,15 @@
     margin: auto;
 }
 
-.posterDescriptionCard {
+.postercard {
     width: 250px;
     display: flex;
     flex: wrap;
     margin: 5px;
     padding: 5px;
+}
+
+.postersize {
+    height: 250;
+    width: 200;
 }

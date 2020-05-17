@@ -16,26 +16,26 @@ class MovieItem extends Component {
         const poster = this.props.movie.poster;
         const title = this.props.movie.title;
         const description = this.props.movie.description;
-        let singlePoster = <img src={poster} alt={title}/>
+        let singlePoster = <img src={poster} alt={title} />
         return (
             <div className="margin">
                 <Grid item>
-                <Card className="posterDescriptionCard">
-                    <CardActionArea>
-                        <CardContent>
-                            <div>
-                            {singlePoster}
-                            </div>
-                            <Typography>
-                                <div>
-                                    <h3>{this.props.movie.title}</h3>
-                                    {description}
-                                    <Button onClick={this.handleDetail}>Details</Button>
+                    <Card className="postercard">
+                        <CardActionArea>
+                            <CardContent>
+                                <div className="postersize">
+                                    {singlePoster}
                                 </div>
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                </Card>
+                                <Typography>
+                                    <div className="font">
+                                        <h3>{this.props.movie.title}</h3>
+                                        {description}
+                                        <Button variant="outlined" color="primary" size="small" onClick={this.handleDetail}>Details</Button>
+                                    </div>
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
                 </Grid>
             </div> 
         );

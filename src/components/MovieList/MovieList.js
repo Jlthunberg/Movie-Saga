@@ -11,6 +11,9 @@ class MovieList extends Component {
   render() {
     return (
       <div >
+        <header>
+          <h1>Movies</h1>
+        </header>
         <Grid >
           {this.props.reduxState.moviesReducer.map((movie, index) => {
             return (
