@@ -5,6 +5,9 @@
     flex: wrap;
     margin: 5px;
     padding: 5px;
+    background-color: rgb(195, 200, 207);
+    border-radius: 25px;
+    
 }
 
 .postersize {
@@ -12,7 +15,7 @@
     width: 200;
 }
 
-.font {
+.cardtext {
     max-height: 150px;
     overflow-y: auto;
 }

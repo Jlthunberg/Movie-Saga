@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
-import { Card, CardContent, CardActionArea, Typography, Grid} from '@material-ui/core';
+import { Card, CardContent, CardActionArea, Typography, Grid, Button} from '@material-ui/core';
 import './MovieItem.css';
 import Details from '../Details/Details';
 import {connect} from 'react-redux';
 
 class MovieItem extends Component {
     componentDidMount() {
-        console.log('in Movie Item')
+        // console.log('in Movie Item')
     }// end 
 
-    handleDetail = () => {
-        console.log(' in handle detail');
-        this.props.dispatch({type: 'GET_DETAIL'});
-        this.props.history.push('/details')
+    handleDetail = (id) => {
+        console.log(' in handle detail', this.props.movie.id);
+        // this.props.dispatch({type: 'GET_DETAILS', payload: this.props.movie.id});
+        // this.props.history.push('/details')
     }
     // Renders the entire MovieItem on the DOM
     render() {
         const poster = this.props.movie.poster;
         const title = this.props.movie.title;
         const description = this.props.movie.description;
-        let singlePoster = <img src={poster} alt={title} />
+        let singlePoster = <img src={poster} alt={title} onClick={() => this.handleDetail(this.props.movie.id)}/>
         return (
             <div className="postercard">
                 <Grid>
-                    <Card >
+                    <Card variant="outlined">
                         <CardActionArea>
                         <div onClick={this.handleDetail}>
                             <CardContent>
@@ -31,10 +31,14 @@ class MovieItem extends Component {
                                     {singlePoster}
                                 </div>
                                 <Typography>
+                                    <div className="cardtext">
                                         <h3>{this.props.movie.title}</h3>
-                                        {/* {description} */}
-                                        {/* <Button variant="outlined" size="small" onClick={this.handleDetail}>Details</Button> */}
+                                        {description}
+                                        </div>
                                 </Typography>
+                                {/* <div>
+                                <Button variant="outlined" size="small" onClick={this.handleDetail}>Details</Button>
+                                </div> */}
                             </CardContent>
                             </div>
                         </CardActionArea>

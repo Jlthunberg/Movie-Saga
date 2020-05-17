@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 class Details extends Component {
   // Renders the entire Details on the DOM
@@ -13,4 +14,6 @@ class Details extends Component {
   }
 }
 
-export default Details;
+const mapReduxStateToProps = (reduxState) => ({ reduxState });
+
+export default connect(mapReduxStateToProps)(Details);
