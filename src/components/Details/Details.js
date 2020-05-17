@@ -6,6 +6,8 @@ class Details extends Component {
     return (
       <div className="Details">
         <p>Details</p>
+        <button>Back to List</button>
+        <button>Edit</button>
       </div>
     );
   }

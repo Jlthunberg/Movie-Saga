@@ -17,7 +17,7 @@ class MovieList extends Component {
         <Grid >
           {this.props.reduxState.moviesReducer.map((movie, index) => {
             return (
-              <MovieItem key={index} movie={movie} dispatch={this.props.dispatch} />
+              <MovieItem key={index} movie={movie} dispatch={this.props.dispatch} history={this.props.history}/>
             )
           })}
         </Grid>

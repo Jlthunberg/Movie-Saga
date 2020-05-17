@@ -17,7 +17,7 @@ class App extends Component {
       <div className="App">
         <HashRouter>
           <Route exact path="/" render={ (props) => <MovieList {...props} dispatch={this.props.dispatch}/>} />
-          <Route path="/details" component={Details}/>
+          <Route exact path="/details" component={Details}/>
           <Route path="/edit" component={Edit} />
         </HashRouter>
 

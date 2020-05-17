@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Card, CardContent, CardActionArea, Typography, Grid, Button } from '@material-ui/core';
+import { Card, CardContent, CardActionArea, Typography, Grid} from '@material-ui/core';
+import './MovieItem.css';
+import Details from '../Details/Details';
+import {connect} from 'react-redux';
 
 class MovieItem extends Component {
     componentDidMount() {
@@ -8,8 +11,8 @@ class MovieItem extends Component {
 
     handleDetail = () => {
         console.log(' in handle detail');
-        // this.props.dispatch()
-        // this.props.history.push('/details')
+        this.props.dispatch({type: 'GET_DETAIL'});
+        this.props.history.push('/details')
     }
     // Renders the entire MovieItem on the DOM
     render() {
@@ -18,31 +21,34 @@ class MovieItem extends Component {
         const description = this.props.movie.description;
         let singlePoster = <img src={poster} alt={title} />
         return (
-            <div className="margin">
-                <Grid item>
-                    <Card className="postercard">
+            <div className="postercard">
+                <Grid>
+                    <Card >
                         <CardActionArea>
+                        <div onClick={this.handleDetail}>
                             <CardContent>
                                 <div className="postersize">
                                     {singlePoster}
                                 </div>
                                 <Typography>
-                                    <div className="font">
                                         <h3>{this.props.movie.title}</h3>
-                                        {description}
-                                        <Button variant="outlined" color="primary" size="small" onClick={this.handleDetail}>Details</Button>
-                                    </div>
+                                        {/* {description} */}
+                                        {/* <Button variant="outlined" size="small" onClick={this.handleDetail}>Details</Button> */}
                                 </Typography>
                             </CardContent>
+                            </div>
                         </CardActionArea>
                     </Card>
                 </Grid>
+                <Details />
             </div> 
         );
     }
 }
 
-export default MovieItem;
+const mapReduxStateToProps = (reduxState) => ({ reduxState });
+
+export default connect(mapReduxStateToProps)(MovieItem);
 
 {/* <Grid  container direction="column" justify="center" alignItems="flex-start">
 <h2>{this.props.movie.title}</h2>

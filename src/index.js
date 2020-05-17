@@ -16,6 +16,8 @@ import createSagaMiddleware from 'redux-saga';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
+    yield takeEvery('GET_DETAILS', getMovies);
+
 }
 
 function* getMovies() {
@@ -45,7 +47,8 @@ const moviesReducer = (state = [], action) => {
 const genresReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENRES':
-            return action.payload;
+            console.log('SET_GENRES', action.payload)
+            return action.payload.name;
         default:
             return state;
     }
