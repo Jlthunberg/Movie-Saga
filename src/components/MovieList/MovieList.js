@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MovieItem from '../MovieItem/MovieItem';
 import { connect } from 'react-redux';
+import { Grid } from '@material-ui/core';
 
 class MovieList extends Component {
   componentDidMount() {
@@ -9,14 +10,14 @@ class MovieList extends Component {
   // Renders the entire MovieList on the DOM
   render() {
     return (
-      <div className="MovieList">
-        <ul>
-          {this.props.reduxState.moviesReducer.map((movie) => {
+      <div >
+        <Grid >
+          {this.props.reduxState.moviesReducer.map((movie, index) => {
             return (
-              <MovieItem key={movie.title} movie={movie} dispatch={this.props.dispatch} />
+              <MovieItem key={index} movie={movie} dispatch={this.props.dispatch} />
             )
           })}
-        </ul>
+        </Grid>
 
       </div>
     );

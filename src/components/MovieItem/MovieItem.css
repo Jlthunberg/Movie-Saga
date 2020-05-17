@@ -1,0 +1,11 @@
+.margin{
+    margin: auto;
+}
+
+.posterDescriptionCard {
+    width: 250px;
+    display: flex;
+    flex: wrap;
+    margin: 5px;
+    padding: 5px;
+}

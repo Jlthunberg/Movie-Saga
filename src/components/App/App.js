@@ -15,10 +15,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>Home Movie Page</p>
         <HashRouter>
           <Route exact path="/" render={ (props) => <MovieList {...props} dispatch={this.props.dispatch}/>} />
-          <Route path="/details" component={Details} history={this.props.history}/>
+          <Route path="/details" component={Details}/>
           <Route path="/edit" component={Edit} />
         </HashRouter>
 
